@@ -41,7 +41,7 @@ class TransformerExperiment():
         self.batch_size = batch_size
         self.optim = AdamW(self.model.parameters(), lr=2e-5, eps=1e-8)
 
-    def tokenize(self):
+    def tokenize(self, max_len=512):
         """
         Tokenize a list of sentences.
         """
@@ -52,7 +52,7 @@ class TransformerExperiment():
             encoded_dict = self.tokenizer.encode_plus(
                 sent,
                 add_special_tokens=True,
-                max_length=300,
+                max_length=max_len,
                 pad_to_max_length=True,
                 return_attention_mask=True,
                 return_tensors='pt',

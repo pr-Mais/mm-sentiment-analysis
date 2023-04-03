@@ -261,7 +261,7 @@ class TransformerExperiment():
     def print_stats(self):
         df_stats = pd.DataFrame(data=self.training_stats)
         df_stats = df_stats.set_index('epoch')
-        df = df.style.set_table_styles(
+        df_stats = df_stats.style.set_table_styles(
             [dict(selector="th", props=[('max-width', '70px')])])
 
         import matplotlib.pyplot as plt
